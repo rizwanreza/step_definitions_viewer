@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.push File.join(File.dirname(__FILE__),".." ,"lib" )
+require 'step_definitions_viewer'
+require "thor"
+class Steps < Thor
+  desc "view FILENAME", "shows steps from a step definition file"
+  def view(filename)
+    StepDefinitionsViewer::Parser.output(filename)
+  end
+end
+Steps.start
